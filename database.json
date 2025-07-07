@@ -1,0 +1,106 @@
+{
+    "bases":{
+        "debian": {
+            "debian": {
+                "latest_version": "12.6 Bookworm",
+                "based_on": "Independent",
+                "good_for": ["servers", "advanced users", "stable systems"],
+                "official_desktop_environments": ["gnome", "xfce", "kde-plasma", "lxde", "mate", "cinnamon"],
+                "country": "Unknown",
+                "last_data_for": "July 7 2025"
+            },
+            "Mint": {
+                "latest_version": "22.1 Xia",
+                "based_on": "Ubuntu noble",
+                "good_for": ["New users", "gamers", "developers"],
+                "official_desktop_environments": ["mate", "xfce", "cinnamon"],
+                "country": "France",
+                "last_data_for": "July 7 2025"
+            },
+            "Ubuntu":{
+                "latest_version": "24.04 LTS Noble Numbat",
+                "based_on": "Debian unstable",
+                "good_for": ["New users", "developers", "general purpose", "cloud", "server"],
+                "official_desktop_environments": ["unity"],
+                "country": "UK",
+                "last_data_for": "July 7 2025"
+            },
+            "Kali": {
+                "latest_version": "2024.02",
+                "based_on": "Debian testing",
+                "good_for": ["professionals", "security"],
+                "official_desktop_environments": ["kde-plasma", "gnome", "xfce"],
+                "country": "USA",
+                "last_data_for": "July 7 2025"
+            }
+        },
+        "arch": {
+            "Parch": {
+                "latest_version": "Unknown",
+                "based_on": "Arch linux",
+                "good_for": ["developers", "professionals"],
+                "official_desktop_environments": ["gnome", "kde-plasma", "cutefish"],
+                "country": "Iran",
+                "last_data_for": "July 7 2025"
+            },
+            "Manjaro": {
+                "latest_version": "24.0 Wynsdey",
+                "based_on": "Arch linux",
+                "good_for": ["New users", "gamers", "daily use"],
+                "official_desktop_environments": ["gnome", "kde-plasma", "xfce"],
+                "country": "Austria, France, and Germany",
+                "last_data_for": "July 7 2025"
+            },
+            "garuda": {
+                "latest_version": "2024.06 Dr460nized",
+                "based_on": "Arch linux",
+                "good_for": ["gamers", "normal users"],
+                "official_desktop_environments": ["kde-dr460nized", "gnome", "xfce", "lxqt"],
+                "country": "India",
+                "last_data_for": "July 7 2025"
+            }
+        },
+        "kernel":{
+            "Gentoo": {
+                "latest_version": "23.0 profile",
+                "based_on": "linux kernel",
+                "good_for": ["developers", "professionals", "linux masters"],
+                "official_desktop_environments": [],
+                "country": "unknown",
+                "last_data_for": "July 7 2025"
+            },
+            "slackware": {
+                "latest_version": "15.0",
+                "based_on": "linux kernel",
+                "good_for": ["professionals", "unix purists"],
+                "official_desktop_environments": ["kde", "xfce"],
+                "country": "USA",
+                "last_data_for": "July 7 2025"
+            },
+            "fedora": {
+                "latest_version": "40",
+                "based_on": "Independent (RPM family)",
+                "good_for": ["developers", "gnome-lovers"],
+                "official_desktop_environments": ["gnome"],
+                "country": "USA",
+                "last_data_for": "July 7 2025"
+            },
+            "rhel": {
+                "latest_version": "9.4",
+                "based_on": "Fedora",
+                "good_for": ["servers"],
+                "official_desktop_environments": ["gnome"],
+                "country": "USA",
+                "last_data_for": "July 7 2025"
+            },
+            "centOS": {
+                "latest_version": "Stream 9",
+                "based_on": "RHEL",
+                "good_for": ["servers"],
+                "official_desktop_environments": ["gnome"],
+                "country": "USA",
+                "last_data_for": "July 7 2025"
+            }
+        }
+    }
+}
