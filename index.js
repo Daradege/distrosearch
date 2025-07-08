@@ -84,7 +84,7 @@ function showDistros(baseName, distros) {
                 </div>
             </div>
             <div class="ml-4 w-24 h-24 flex-shrink-0">
-                <img src="assets/distroLogos/${distroName}.png" alt="${distroName}" class="w-full h-full object-cover rounded-lg" />
+                <img src="assets/distrologos/${distroName.toLowerCase()}.png" alt="${distroName}" class="w-full h-full object-cover rounded-lg" />
             </div>
         </div>
         `;

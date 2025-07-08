@@ -54,11 +54,11 @@
                 "website": "https://archlinux.org/"
             },
             "Parch": {
-                "latest_version": "Unknown",
+                "latest_version": "2025.07.01",
                 "based_on": "Arch linux",
                 "good_for": ["developers", "professionals"],
                 "official_desktop_environments": ["gnome", "kde-plasma", "cutefish"],
-                "package_managers": ["Pacman", "AUR"],
+                "package_managers": ["Pacman", "paru"],
                 "country": "Iran",
                 "last_data_for": "July 7 2025",
                 "website": "https://parchlinux.com/"
@@ -68,7 +68,7 @@
                 "based_on": "Arch linux",
                 "good_for": ["New users", "gamers", "daily use"],
                 "official_desktop_environments": ["gnome", "kde-plasma", "xfce"],
-                "package_managers": ["Pacman", "AUR"],
+                "package_managers": ["Pacman", "Pamac"],
                 "country": "Austria, France, and Germany",
                 "last_data_for": "July 7 2025",
                 "website": "https://manjaro.org/"
@@ -78,7 +78,7 @@
                 "based_on": "Arch linux",
                 "good_for": ["gamers", "normal users"],
                 "official_desktop_environments": ["kde-dr460nized", "gnome", "xfce", "lxqt"],
-                "package_managers": ["Pacman", "AUR"],
+                "package_managers": ["Pacman"],
                 "country": "India",
                 "last_data_for": "July 7 2025",
                 "website": "https://garudalinux.org/"
