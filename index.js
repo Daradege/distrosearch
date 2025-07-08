@@ -49,6 +49,10 @@ function showDistros(baseName, distros) {
         const goodForTags = distro.good_for.map(tag => 
             `<span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">${tag}</span>`
         ).join('');
+
+        const PackageManagers = distro.package_managers.map(tag => 
+            `<span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">${tag}</span>`
+        ).join('');
         
         const deTags = distro.official_desktop_environments.map(de => 
             `<span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">${de}</span>`
@@ -66,6 +70,10 @@ function showDistros(baseName, distros) {
                     <div>
                         <span class="font-semibold text-gray-700">Good for:</span>
                         <div class="mt-1">${goodForTags}</div>
+                    </div>
+                    <div>
+                        <span class="font-semibold text-gray-700">Package Managers:</span>
+                        <div class="mt-1">${PackageManagers}</div>
                     </div>
                     ${distro.official_desktop_environments.length > 0 ? `
                     <div>
