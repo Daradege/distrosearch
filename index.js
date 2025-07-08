@@ -10,11 +10,17 @@ document.addEventListener("DOMContentLoaded", function () {
             base_element.classList.add("base_element", "bg-white", "rounded-lg", "shadow-md", "p-6", "hover:shadow-lg", "transition-shadow", "cursor-pointer", "border-2", "border-transparent", "hover:border-green-300");
             
             base_element.innerHTML = `
-                <div class="text-center">
-                    <img src="assets/${base}.png" alt="${base}">
+            <div class="flex flex-col h-full justify-between p-4">
+                <!-- Image container to center image vertically -->
+                <div class="flex justify-center items-center mb-4" style="height: 200px;">
+                    <img class="max-w-full h-auto" src="assets/${base}.png" alt="${base}">
+                </div>
+                <!-- Text content aligned at the bottom -->
+                <div>
                     <h3 class="text-xl font-bold text-green-800 capitalize mb-2">${base}</h3>
                     <p class="text-green-600 text-sm">${Object.keys(data.bases[base]).length} distributions</p>
                 </div>
+            </div>
             `;
             base_element.addEventListener('click', function() {
                 showDistros(base, data.bases[base]);
@@ -49,7 +55,8 @@ function showDistros(baseName, distros) {
         ).join('');
         
         distroCards += `
-            <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors">
+        <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors flex items-start">
+            <div class="flex-1">
                 <h4 class="text-lg font-bold text-green-900 mb-2">${distroName}</h4>
                 <div class="space-y-2 text-sm">
                     <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">${distro.latest_version}</span></p>
@@ -68,6 +75,10 @@ function showDistros(baseName, distros) {
                     ` : ''}
                 </div>
             </div>
+            <div class="ml-4 w-24 h-24 flex-shrink-0">
+                <img src="assets/distroLogos/${distroName}.png" alt="${distroName}" class="w-full h-full object-cover rounded-lg" />
+            </div>
+        </div>
         `;
     });
     
