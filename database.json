@@ -54,7 +54,7 @@
                 "website": "https://archlinux.org/"
             },
             "Parch": {
-                "latest_version": "2025.07.01",
+                "latest_version": "Unknown",
                 "based_on": "Arch linux",
                 "good_for": ["developers", "professionals"],
                 "official_desktop_environments": ["gnome", "kde-plasma", "cutefish"],
