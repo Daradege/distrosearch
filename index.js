@@ -11,9 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             
             base_element.innerHTML = `
                 <div class="text-center">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <img src="assets/${base}.png" alt="${base}" class="w-12 h-12">
-                    </div>
+                    <img src="assets/${base}.png" alt="${base}">
                     <h3 class="text-xl font-bold text-green-800 capitalize mb-2">${base}</h3>
                     <p class="text-green-600 text-sm">${Object.keys(data.bases[base]).length} distributions</p>
                 </div>
@@ -57,6 +55,7 @@ function showDistros(baseName, distros) {
                     <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">${distro.latest_version}</span></p>
                     <p><span class="font-semibold text-gray-700">Based on:</span> <span class="text-green-700">${distro.based_on}</span></p>
                     <p><span class="font-semibold text-gray-700">Country:</span> <span class="text-green-700">${distro.country}</span></p>
+                    <p><span class="font-semibold text-gray-700">Website:</span> <a class="text-cyan-700" href="${distro.website}">${distro.website}</a></p>
                     <div>
                         <span class="font-semibold text-gray-700">Good for:</span>
                         <div class="mt-1">${goodForTags}</div>

@@ -1,13 +1,14 @@
 {
     "bases":{
         "debian": {
-            "debian": {
+            "Debian": {
                 "latest_version": "12.6 Bookworm",
                 "based_on": "Independent",
                 "good_for": ["servers", "advanced users", "stable systems"],
                 "official_desktop_environments": ["gnome", "xfce", "kde-plasma", "lxde", "mate", "cinnamon"],
                 "country": "Unknown",
-                "last_data_for": "July 7 2025"
+                "last_data_for": "July 7 2025",
+                "website": "https://www.debian.org/"
             },
             "Mint": {
                 "latest_version": "22.1 Xia",
@@ -15,7 +16,8 @@
                 "good_for": ["New users", "gamers", "developers"],
                 "official_desktop_environments": ["mate", "xfce", "cinnamon"],
                 "country": "France",
-                "last_data_for": "July 7 2025"
+                "last_data_for": "July 7 2025",
+                "website": "https://linuxmint.com/"
             },
             "Ubuntu":{
                 "latest_version": "24.04 LTS Noble Numbat",
@@ -23,7 +25,8 @@
                 "good_for": ["New users", "developers", "general purpose", "cloud", "server"],
                 "official_desktop_environments": ["unity"],
                 "country": "UK",
-                "last_data_for": "July 7 2025"
+                "last_data_for": "July 7 2025",
+                "website": "https://ubuntu.com/"
             },
             "Kali": {
                 "latest_version": "2024.02",
@@ -31,17 +34,28 @@
                 "good_for": ["professionals", "security"],
                 "official_desktop_environments": ["kde-plasma", "gnome", "xfce"],
                 "country": "USA",
-                "last_data_for": "July 7 2025"
+                "last_data_for": "July 7 2025",
+                "website": "https://www.kali.org/"
             }
         },
         "arch": {
+            "Arch": {
+                "latest_version": "2025.07.01",
+                "based_on": "Independent",
+                "good_for": ["developers", "professionals"],
+                "official_desktop_environments": [],
+                "country": "Hungary",
+                "last_data_for": "July 8 2025",
+                "website": "https://archlinux.org/"
+            },
             "Parch": {
                 "latest_version": "Unknown",
                 "based_on": "Arch linux",
                 "good_for": ["developers", "professionals"],
                 "official_desktop_environments": ["gnome", "kde-plasma", "cutefish"],
                 "country": "Iran",
-                "last_data_for": "July 7 2025"
+                "last_data_for": "July 7 2025",
+                "website": "https://parchlinux.com/"
             },
             "Manjaro": {
                 "latest_version": "24.0 Wynsdey",
@@ -49,7 +63,8 @@
                 "good_for": ["New users", "gamers", "daily use"],
                 "official_desktop_environments": ["gnome", "kde-plasma", "xfce"],
                 "country": "Austria, France, and Germany",
-                "last_data_for": "July 7 2025"
+                "last_data_for": "July 7 2025",
+                "website": "https://manjaro.org/"
             },
             "garuda": {
                 "latest_version": "2024.06 Dr460nized",
@@ -57,7 +72,8 @@
                 "good_for": ["gamers", "normal users"],
                 "official_desktop_environments": ["kde-dr460nized", "gnome", "xfce", "lxqt"],
                 "country": "India",
-                "last_data_for": "July 7 2025"
+                "last_data_for": "July 7 2025",
+                "website": "https://garudalinux.org/"
             }
         },
         "kernel":{
@@ -67,7 +83,8 @@
                 "good_for": ["developers", "professionals", "linux masters"],
                 "official_desktop_environments": [],
                 "country": "unknown",
-                "last_data_for": "July 7 2025"
+                "last_data_for": "July 7 2025",
+                "website": "https://www.gentoo.org/"
             },
             "slackware": {
                 "latest_version": "15.0",
