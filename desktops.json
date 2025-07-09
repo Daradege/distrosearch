@@ -69,5 +69,12 @@
         "website": "https://www.enlightenment.org/",
         "developed_by": "Enlightenment Development Team",
         "tags": ["lightweight", "modern", "highly-customizable"]
+    },
+    "unity": {
+        "name": "Unity",
+        "description": "Unity is a official desktop enviroment made for ubuntu.",
+        "website": "https://ubuntuunity.org/",
+        "developed_by": "Ubuntu Linux",
+        "tags": ["exclusive", "modern", "lightweight"]
     }
 }

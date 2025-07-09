@@ -53,6 +53,16 @@
                 "last_data_for": "July 8 2025",
                 "website": "https://archlinux.org/"
             },
+            "BlackArch": {
+                "latest_version": "2023.04.01",
+                "based_on": "Arch linux",
+                "good_for": ["developers", "professionals", "security"],
+                "official_desktop_environments": [],
+                "package_managers": ["Pacman", "AUR"],
+                "country": "USA",
+                "last_data_for": "July 9 2025",
+                "website": "https://blackarch.org/"
+            },
             "Parch": {
                 "latest_version": "Unknown",
                 "based_on": "Arch linux",
