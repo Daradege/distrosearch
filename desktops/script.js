@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         envs.forEach(element => {
             main_element.appendChild(document.createElement("div")).innerHTML = `
             <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+            <img src="../assets/desktops/${element}.png" alt="${element}">
             <h2 class="text-xl font-bold text-green-800 mb-2">${data[element].name}</h2>
             <ul class="list-disc pl-5">
                 <li class="text-green-600">${data[element].description}</li>
