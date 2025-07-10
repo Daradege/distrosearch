@@ -64,7 +64,7 @@
                 "website": "https://blackarch.org/"
             },
             "Parch": {
-                "latest_version": "Unknown",
+                "latest_version": "2024-04-26",
                 "based_on": "Arch linux",
                 "good_for": ["developers", "professionals"],
                 "official_desktop_environments": ["gnome", "kde-plasma", "cutefish"],
