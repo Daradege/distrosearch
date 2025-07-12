@@ -1,15 +1,20 @@
+var data_;
+fetch("https://raw.githubusercontent.com/Daradege/distrosearch/refs/heads/main/database.json")
+.then(data => data.json())
+.then(data => {
+    data_ = data
+})
+
+
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("https://raw.githubusercontent.com/Daradege/distrosearch/refs/heads/main/database.json")
-    .then(data => data.json())
-    .then(data => {
 
         // roles
 
         const uniqueGoodFor = new Set();
 
-        for (const base in data.bases) {
-            for (const distro in data.bases[base]) {
-                data.bases[base][distro].good_for.forEach(item => {
+        for (const base in data_.bases) {
+            for (const distro in data_.bases[base]) {
+                data_.bases[base][distro].good_for.forEach(item => {
                     uniqueGoodFor.add(item);
                 });
             }
@@ -22,9 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // de
 
         const desktopEnvs = new Set();
-        for (const base in data.bases) {
-            for (const distro in data.bases[base]) {
-                data.bases[base][distro].official_desktop_environments.forEach(item => {
+        for (const base in data_.bases) {
+            for (const distro in data_.bases[base]) {
+                data_.bases[base][distro].official_desktop_environments.forEach(item => {
                     desktopEnvs.add(item);
                 });
             }
@@ -39,9 +44,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // packageman
 
         const packageManagers = new Set();
-        for (const base in data.bases) {
-            for (const distro in data.bases[base]) {
-                data.bases[base][distro].package_managers.forEach(item => {
+        for (const base in data_.bases) {
+            for (const distro in data_.bases[base]) {
+                data_.bases[base][distro].package_managers.forEach(item => {
                     packageManagers.add(item);
                 })
             }
@@ -55,9 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const bases = new Set();
 
-        for (const base in data.bases) {
-            for (const distro in data.bases[base]) {
-                bases.add(data.bases[base][distro].based_on)
+        for (const base in data_.bases) {
+            for (const distro in data_.bases[base]) {
+                bases.add(data_.bases[base][distro].based_on)
             }
         }
 
@@ -68,19 +73,16 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
     document.getElementById("submitbutton").addEventListener("click", function() {
-        fetch("../database.json")
-        .then(data => data.json())
-        .then(data => {
             const selected_role = document.getElementById("role").value;
             const selected_desktop = document.getElementById("desktop").value;
             const selected_package_manager = document.getElementById("packageManager").value;
             const selected_base = document.getElementById("base").value;
             
             var matches = new Array();
-            for (const base in data.bases) {
-                for (const distroName in data.bases[base]) {
+            for (const base in data_.bases) {
+                for (const distroName in data_.bases[base]) {
 
-                    const distro = data.bases[base][distroName];
+                    const distro = data_.bases[base][distroName];
                     
                     const roleMatch = selected_role === "All" || (distro.good_for && distro.good_for.includes(selected_role));
                     
@@ -115,5 +117,3 @@ document.addEventListener("DOMContentLoaded", function () {
                 `
             });
         })
-    })
-})
