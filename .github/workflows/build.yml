@@ -25,22 +25,23 @@ jobs:
           python3 -m pip install --upgrade pip
           pip install -r requirements.txt
 
+
+      - name: Delete existing files and folders
+        run: |
+          cd pages-branch
+          rm -rf *
+          cd ..
+
       - name: Run Python script
         run: |
           mkdir output
-          python3 scripts/generate_html.py
+          python3 scripts/generate.py
 
       - name: Checkout pages branch
         uses: actions/checkout@v4
         with:
           ref: pages
           path: pages-branch
-      
-      - name: Delete existing files and folders
-        run: |
-          cd pages-branch
-          rm -rf *
-          cd ..
 
       - name: Copy generated HTML to pages branch
         run: |
