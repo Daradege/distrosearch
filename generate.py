@@ -17,7 +17,7 @@ with open("desktops.json", "r") as d:
 
 
 all_bases = distros["bases"]
-all_distros = []
+
 
 os.system("mkdir -p " + OUTPUT_DIR + "/distros")
 os.system("mkdir -p " + OUTPUT_DIR + "/desktops")
@@ -33,6 +33,16 @@ with open(os.path.join(OUTPUT_DIR)+"/distros/index.html", "w", encoding="utf-8")
 with open(os.path.join(OUTPUT_DIR)+"/index.html", "w", encoding="utf-8") as f:
     template = env.get_template('index.html')
     f.write(template.render(bases=all_bases))
+
+for base in all_bases:
+    for distro in all_bases[base]:
+        os.system("mkdir -p " + OUTPUT_DIR + "/distros/" + base.lower())
+        with open(os.path.join(OUTPUT_DIR)+"/distros/"+base.lower()+"/"+distro.lower()+".html", "w", encoding="utf-8") as f:
+            template = env.get_template('distropage.html')
+            dname = distro
+            distro = all_bases[base][distro]
+            distro["name"] = dname
+            f.write(template.render(distro=distro, base=base))
 
 os.system("cp -r assets " + OUTPUT_DIR)
 os.system("cp -r src " + OUTPUT_DIR)

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DistroSearch - Find Your Linux</title>
-    <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="../src/output.css">
     <script src="index.js"></script>
     <style>
         .footer {
@@ -81,11 +81,10 @@
                         <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors flex items-start">
                             <div class="flex-1">
                                 <h4 class="text-lg font-bold text-green-900 mb-2">{{ distro }}</h4>
-                                <div class="space-y-2 text-sm">
+                                <div class="space-y-2 text-sm" onclick="window.location.href = './{{ base }}/{{ distro.lower() }}.html'">
                                     <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">{{bases[base][distro]['latest_version']}}</span></p>
                                     <p><span class="font-semibold text-gray-700">Based on:</span> <span class="text-green-700">{{bases[base][distro]['based_on']}}</span></p>
                                     <p><span class="font-semibold text-gray-700">Country:</span> <span class="text-green-700">{{bases[base][distro]['country']}}</span></p>
-                                    <p><span class="font-semibold text-gray-700">Website:</span> <a class="text-cyan-700" href="{{bases[base][distro]['website']}}">{{bases[base][distro]['website']}}</a></p>
                                     <div>
                                         <span class="font-semibold text-gray-700">Good for:</span>
                                         <div class="mt-1">
@@ -115,7 +114,7 @@
                                 </div>
                             </div>
                             <div class="ml-4 w-24 h-24 flex-shrink-0">
-                                <img src="assets/distrologos/{{ distro.lower() }}.png" alt="{{distro}}" class="w-full h-full object-cover rounded-lg" />
+                                <img src="/assets/distrologos/{{ distro.lower() }}.png" alt="{{distro}}" class="w-full h-full object-cover rounded-lg" />
                             </div>
                         </div>
 
