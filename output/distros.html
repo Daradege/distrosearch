@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DistroSearch - Find Your Linux</title>
+    <link rel="stylesheet" href="../src/output.css">
+    <script src="index.js"></script>
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: red;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-green-50 min-h-screen">
+    <header class="bg-green-600 shadow-lg p-4 mb-8">
+        <div class="container mx-auto">
+            <div class="hidden md:flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-white mb-2">🐧 DistroSearch</h1>
+                    <p class="text-green-100 text-sm">Find the perfect Linux distribution for you</p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="suggest-distro" class="bg-white text-green-600 font-semibold py-2 px-4 rounded shadow hover:bg-green-100 transition duration-300">
+                        Choose the best for you
+                    </a>
+                    <a href="desktops" class="bg-white text-green-600 font-semibold py-2 px-4 rounded shadow hover:bg-green-100 transition duration-300">
+                        Desktop environments
+                    </a>
+                </div>
+            </div>
+            
+            <div class="md:hidden">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h1 class="text-2xl font-bold text-white mb-1">🐧 DistroSearch</h1>
+                        <p class="text-green-100 text-xs">Find the perfect Linux distribution for you</p>
+                    </div>
+                    <button id="menuButton" class="text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobileMenu" class="hidden mt-4 flex flex-col gap-2">
+                    <a href="suggest-distro" class="bg-white text-green-600 font-semibold py-2 px-4 rounded shadow hover:bg-green-100 transition duration-300 text-center">
+                        Choose the best for you
+                    </a>
+                    <a href="desktops" class="bg-white text-green-600 font-semibold py-2 px-4 rounded shadow hover:bg-green-100 transition duration-300 text-center">
+                        Desktop environments
+                    </a>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById("menuButton").addEventListener("click", function() {
+                var mobileMenu = document.getElementById("mobileMenu");
+                if (mobileMenu.classList.contains("hidden")) {
+                    mobileMenu.classList.remove("hidden");
+                } else {
+                    mobileMenu.classList.add("hidden");
+                }
+            });
+        </script>
+    </header>
+    
+    <main class="container mx-auto px-4">
+        <div class="mb-6">
+            <h2 class="text-2xl font-semibold text-green-800 mb-4">Choose Your Base</h2>
+            <div id="main_contents" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+
+                    
+
+                        <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors flex items-start">
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-green-900 mb-2">Debian</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">12.6 Bookworm</span></p>
+                                    <p><span class="font-semibold text-gray-700">Based on:</span> <span class="text-green-700">Independent</span></p>
+                                    <p><span class="font-semibold text-gray-700">Country:</span> <span class="text-green-700">Unknown</span></p>
+                                    <p><span class="font-semibold text-gray-700">Website:</span> <a class="text-cyan-700" href="https://www.debian.org/">https://www.debian.org/</a></p>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Good for:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">servers</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">advanced users</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">stable systems</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Package Managers:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">APT</span>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="ml-4 w-24 h-24 flex-shrink-0">
+                                <img src="../assets/distrologos/debian.png" alt="Debian" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                        </div>
+
+                    
+
+                        <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors flex items-start">
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-green-900 mb-2">Mint</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">22.1 Xia</span></p>
+                                    <p><span class="font-semibold text-gray-700">Based on:</span> <span class="text-green-700">Ubuntu noble</span></p>
+                                    <p><span class="font-semibold text-gray-700">Country:</span> <span class="text-green-700">France</span></p>
+                                    <p><span class="font-semibold text-gray-700">Website:</span> <a class="text-cyan-700" href="https://linuxmint.com/">https://linuxmint.com/</a></p>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Good for:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">New users</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">gamers</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">developers</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Package Managers:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">APT</span>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="ml-4 w-24 h-24 flex-shrink-0">
+                                <img src="../assets/distrologos/mint.png" alt="Mint" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                        </div>
+
+                    
+
+                        <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors flex items-start">
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-green-900 mb-2">Ubuntu</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">24.04 LTS Noble Numbat</span></p>
+                                    <p><span class="font-semibold text-gray-700">Based on:</span> <span class="text-green-700">Debian unstable</span></p>
+                                    <p><span class="font-semibold text-gray-700">Country:</span> <span class="text-green-700">UK</span></p>
+                                    <p><span class="font-semibold text-gray-700">Website:</span> <a class="text-cyan-700" href="https://ubuntu.com/">https://ubuntu.com/</a></p>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Good for:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">New users</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">developers</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">general purpose</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">cloud</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">server</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Package Managers:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">APT</span>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="ml-4 w-24 h-24 flex-shrink-0">
+                                <img src="../assets/distrologos/ubuntu.png" alt="Ubuntu" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                        </div>
+
+                    
+
+                        <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors flex items-start">
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-green-900 mb-2">Kali</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">2024.02</span></p>
+                                    <p><span class="font-semibold text-gray-700">Based on:</span> <span class="text-green-700">Debian testing</span></p>
+                                    <p><span class="font-semibold text-gray-700">Country:</span> <span class="text-green-700">USA</span></p>
+                                    <p><span class="font-semibold text-gray-700">Website:</span> <a class="text-cyan-700" href="https://www.kali.org/">https://www.kali.org/</a></p>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Good for:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">professionals</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">security</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Package Managers:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">APT</span>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="ml-4 w-24 h-24 flex-shrink-0">
+                                <img src="../assets/distrologos/kali.png" alt="Kali" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                        </div>
+
+                    
+
+                
+
+                    
+
+                        <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors flex items-start">
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-green-900 mb-2">Arch</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">2025.07.01</span></p>
+                                    <p><span class="font-semibold text-gray-700">Based on:</span> <span class="text-green-700">Independent</span></p>
+                                    <p><span class="font-semibold text-gray-700">Country:</span> <span class="text-green-700">Hungary</span></p>
+                                    <p><span class="font-semibold text-gray-700">Website:</span> <a class="text-cyan-700" href="https://archlinux.org/">https://archlinux.org/</a></p>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Good for:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">developers</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">professionals</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Package Managers:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">Pacman</span>
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">AUR</span>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="ml-4 w-24 h-24 flex-shrink-0">
+                                <img src="../assets/distrologos/arch.png" alt="Arch" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                        </div>
+
+                    
+
+                        <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors flex items-start">
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-green-900 mb-2">BlackArch</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">2023.04.01</span></p>
+                                    <p><span class="font-semibold text-gray-700">Based on:</span> <span class="text-green-700">Arch linux</span></p>
+                                    <p><span class="font-semibold text-gray-700">Country:</span> <span class="text-green-700">USA</span></p>
+                                    <p><span class="font-semibold text-gray-700">Website:</span> <a class="text-cyan-700" href="https://blackarch.org/">https://blackarch.org/</a></p>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Good for:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">developers</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">professionals</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">security</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Package Managers:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">Pacman</span>
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">AUR</span>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="ml-4 w-24 h-24 flex-shrink-0">
+                                <img src="../assets/distrologos/blackarch.png" alt="BlackArch" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                        </div>
+
+                    
+
+                        <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors flex items-start">
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-green-900 mb-2">Parch</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">2024-04-26</span></p>
+                                    <p><span class="font-semibold text-gray-700">Based on:</span> <span class="text-green-700">Arch linux</span></p>
+                                    <p><span class="font-semibold text-gray-700">Country:</span> <span class="text-green-700">Iran</span></p>
+                                    <p><span class="font-semibold text-gray-700">Website:</span> <a class="text-cyan-700" href="https://parchlinux.com/">https://parchlinux.com/</a></p>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Good for:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">developers</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">professionals</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Package Managers:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">Pacman</span>
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">paru</span>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="ml-4 w-24 h-24 flex-shrink-0">
+                                <img src="../assets/distrologos/parch.png" alt="Parch" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                        </div>
+
+                    
+
+                        <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors flex items-start">
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-green-900 mb-2">Manjaro</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">24.0 Wynsdey</span></p>
+                                    <p><span class="font-semibold text-gray-700">Based on:</span> <span class="text-green-700">Arch linux</span></p>
+                                    <p><span class="font-semibold text-gray-700">Country:</span> <span class="text-green-700">Austria, France, and Germany</span></p>
+                                    <p><span class="font-semibold text-gray-700">Website:</span> <a class="text-cyan-700" href="https://manjaro.org/">https://manjaro.org/</a></p>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Good for:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">New users</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">gamers</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">daily use</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Package Managers:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">Pacman</span>
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">Pamac</span>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="ml-4 w-24 h-24 flex-shrink-0">
+                                <img src="../assets/distrologos/manjaro.png" alt="Manjaro" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                        </div>
+
+                    
+
+                        <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors flex items-start">
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-green-900 mb-2">garuda</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">2024.06 Dr460nized</span></p>
+                                    <p><span class="font-semibold text-gray-700">Based on:</span> <span class="text-green-700">Arch linux</span></p>
+                                    <p><span class="font-semibold text-gray-700">Country:</span> <span class="text-green-700">India</span></p>
+                                    <p><span class="font-semibold text-gray-700">Website:</span> <a class="text-cyan-700" href="https://garudalinux.org/">https://garudalinux.org/</a></p>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Good for:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">gamers</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">normal users</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Package Managers:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">Pacman</span>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="ml-4 w-24 h-24 flex-shrink-0">
+                                <img src="../assets/distrologos/garuda.png" alt="garuda" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                        </div>
+
+                    
+
+                
+
+                    
+
+                        <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors flex items-start">
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-green-900 mb-2">Gentoo</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">23.0 profile</span></p>
+                                    <p><span class="font-semibold text-gray-700">Based on:</span> <span class="text-green-700">linux kernel</span></p>
+                                    <p><span class="font-semibold text-gray-700">Country:</span> <span class="text-green-700">unknown</span></p>
+                                    <p><span class="font-semibold text-gray-700">Website:</span> <a class="text-cyan-700" href="https://www.gentoo.org/">https://www.gentoo.org/</a></p>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Good for:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">developers</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">professionals</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">linux masters</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Package Managers:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">Portage</span>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="ml-4 w-24 h-24 flex-shrink-0">
+                                <img src="../assets/distrologos/gentoo.png" alt="Gentoo" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                        </div>
+
+                    
+
+                        <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors flex items-start">
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-green-900 mb-2">slackware</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">15.0</span></p>
+                                    <p><span class="font-semibold text-gray-700">Based on:</span> <span class="text-green-700">linux kernel</span></p>
+                                    <p><span class="font-semibold text-gray-700">Country:</span> <span class="text-green-700">USA</span></p>
+                                    <p><span class="font-semibold text-gray-700">Website:</span> <a class="text-cyan-700" href=""></a></p>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Good for:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">professionals</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">unix purists</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Package Managers:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">pkgtool</span>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="ml-4 w-24 h-24 flex-shrink-0">
+                                <img src="../assets/distrologos/slackware.png" alt="slackware" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                        </div>
+
+                    
+
+                        <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors flex items-start">
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-green-900 mb-2">fedora</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">40</span></p>
+                                    <p><span class="font-semibold text-gray-700">Based on:</span> <span class="text-green-700">Independent (RPM family)</span></p>
+                                    <p><span class="font-semibold text-gray-700">Country:</span> <span class="text-green-700">USA</span></p>
+                                    <p><span class="font-semibold text-gray-700">Website:</span> <a class="text-cyan-700" href=""></a></p>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Good for:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">developers</span>
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">gnome-lovers</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Package Managers:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">DNF</span>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="ml-4 w-24 h-24 flex-shrink-0">
+                                <img src="../assets/distrologos/fedora.png" alt="fedora" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                        </div>
+
+                    
+
+                        <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors flex items-start">
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-green-900 mb-2">rhel</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">9.4</span></p>
+                                    <p><span class="font-semibold text-gray-700">Based on:</span> <span class="text-green-700">Fedora</span></p>
+                                    <p><span class="font-semibold text-gray-700">Country:</span> <span class="text-green-700">USA</span></p>
+                                    <p><span class="font-semibold text-gray-700">Website:</span> <a class="text-cyan-700" href=""></a></p>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Good for:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">servers</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Package Managers:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">YUM</span>
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">DNF</span>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="ml-4 w-24 h-24 flex-shrink-0">
+                                <img src="../assets/distrologos/rhel.png" alt="rhel" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                        </div>
+
+                    
+
+                        <div class="bg-green-50 rounded-lg p-4 border border-green-200 hover:bg-green-100 transition-colors flex items-start">
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-green-900 mb-2">centOS</h4>
+                                <div class="space-y-2 text-sm">
+                                    <p><span class="font-semibold text-gray-700">Version:</span> <span class="text-green-700">Stream 9</span></p>
+                                    <p><span class="font-semibold text-gray-700">Based on:</span> <span class="text-green-700">RHEL</span></p>
+                                    <p><span class="font-semibold text-gray-700">Country:</span> <span class="text-green-700">USA</span></p>
+                                    <p><span class="font-semibold text-gray-700">Website:</span> <a class="text-cyan-700" href=""></a></p>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Good for:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">servers</span>
+                                            
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="font-semibold text-gray-700">Package Managers:</span>
+                                        <div class="mt-1">
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">YUM</span>
+                                            
+                                                <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-1 mb-1">DNF</span>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="ml-4 w-24 h-24 flex-shrink-0">
+                                <img src="../assets/distrologos/centos.png" alt="centOS" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                        </div>
+
+                    
+
+                
+            </div>
+        </div>
+        
+        <div id="distro_details" class="hidden mt-8 bg-white rounded-lg shadow-md p-6 border-l-4 border-green-500">
+            <!-- details -->
+        </div>
+    </main>
+    <br><br><br>
+    <div class="mt-16 bg-green-700 text-white p-4 text-center footer">
+        <p class="text-sm">Made with 💚 for Linux lovers</p>
+        <p><a href="https://github.com/Daradege/distrosearch">Help us in improving DistroSearch</a></p>
+    </div>
+</body>
+</html>
