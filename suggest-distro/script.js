@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("../database.json")
+    fetch("https://raw.githubusercontent.com/Daradege/distrosearch/refs/heads/main/database.json")
     .then(data => data.json())
     .then(data => {
 
