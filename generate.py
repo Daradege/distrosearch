@@ -46,5 +46,6 @@ for base in all_bases:
 
 os.system("cp -r assets " + OUTPUT_DIR)
 os.system("cp -r src " + OUTPUT_DIR)
+os.system("cp -r suggest-distro " + OUTPUT_DIR)
 
 print("HTML generation done.")
