@@ -25,13 +25,6 @@ jobs:
           python3 -m pip install --upgrade pip
           pip install -r requirements.txt
 
-
-      - name: Delete existing files and folders
-        run: |
-          cd pages-branch
-          rm -rf *
-          cd ..
-
       - name: Run Python script
         run: |
           mkdir output
@@ -42,6 +35,12 @@ jobs:
         with:
           ref: pages
           path: pages-branch
+
+      - name: Delete existing files and folders
+        run: |
+          cd pages-branch
+          rm -rf *
+          cd ..
 
       - name: Copy generated HTML to pages branch
         run: |
