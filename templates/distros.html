@@ -111,15 +111,15 @@
                                         </div>
                                     </div>
                                     {% endif %}
+                                    <a href="/{{ base }}/{{ distro }}" class="inline-block mt-2">
+                                        <button class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded border border-green-300 transition-colors">
+                                            More Info
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                             <div class="ml-4 w-24 h-24 flex-shrink-0">
                                 <img src="../assets/distrologos/{{ distro.lower() }}.png" alt="{{distro}}" class="w-full h-full object-cover rounded-lg" />
-                                <a href="/{{ base }}/{{ distro }}">
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded" style="font-size: 10px;">
-                                        info page
-                                    </button>
-                                </a>
                             </div>
                         </div>
 
