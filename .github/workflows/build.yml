@@ -28,7 +28,7 @@ jobs:
       - name: Run Python script
         run: |
           mkdir output
-          python3 scripts/generate.py
+          python3 generate.py
 
       - name: Checkout pages branch
         uses: actions/checkout@v4
