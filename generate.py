@@ -19,6 +19,9 @@ with open("desktops.json", "r") as d:
 all_bases = distros["bases"]
 all_distros = []
 
+os.system("mkdir -p " + OUTPUT_DIR + "/distros")
+os.system("mkdir -p " + OUTPUT_DIR + "/desktops")
+
 with open(os.path.join(OUTPUT_DIR)+"/desktops/index.html", "w", encoding="utf-8") as f:
     template = env.get_template('desktops.html')
     f.write(template.render(desktops=desktop))
