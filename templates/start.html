@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DistroSearch - Find Your Linux</title>
+        <link rel="stylesheet" href="../src/output.css" />
+        <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+        <style>
+            * {
+                font-family: Vazirmatn;
+            }
+            .goog-te-banner-frame.skiptranslate {
+                display: none !important;
+            }
+            body {
+                top: 0px !important;
+            }
+            .goog-logo-link,
+            .goog-te-gadget span {
+                display: none !important;
+            }
+            #goog-gt-tt {
+                display: none !important;
+            }
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: red;
+                color: white;
+                text-align: center;
+            }
+            .info-card {
+                background-color: white;
+                border-radius: 0.5rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+                border-left: 4px solid #38a169;
+            }
+            .info-card h3 {
+                color: #2c5282;
+                margin-bottom: 0.75rem;
+            }
+            .info-card ul {
+                padding-left: 1.25rem;
+            }
+            .info-card li {
+                margin-bottom: 0.5rem;
+            }
+            .highlight {
+                background-color: #f0fff4;
+                padding: 0.2rem 0.4rem;
+                border-radius: 0.25rem;
+                font-family: monospace;
+            }
+            .comparison-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 1.5rem 0;
+            }
+            .comparison-table th,
+            .comparison-table td {
+                border: 1px solid #e2e8f0;
+                padding: 0.75rem;
+                text-align: left;
+            }
+            .comparison-table th {
+                background-color: #38a169;
+                color: white;
+            }
+            .comparison-table tr:nth-child(even) {
+                background-color: #f7fafc;
+            }
+            .tab-content {
+                display: none;
+            }
+            .tab-content.active {
+                display: block;
+                animation: fadeIn 0.5s;
+            }
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            .tab-button {
+                background-color: #e2e8f0;
+                border: none;
+                padding: 0.75rem 1.5rem;
+                cursor: pointer;
+                transition: all 0.3s;
+                font-weight: 600;
+            }
+            .tab-button.active {
+                background-color: #38a169;
+                color: white;
+            }
+            .tab-button:hover:not(.active) {
+                background-color: #cbd5e0;
+            }
+            .tab-header {
+                display: flex;
+                border-bottom: 2px solid #e2e8f0;
+                margin-bottom: 1rem;
+            }
+            .feature-icon {
+                color: #38a169;
+                margin-right: 0.5rem;
+                font-size: 1.25rem;
+            }
+        </style>
+        <script>
+            function openTab(evt, tabName) {
+                var i, tabcontent, tabbuttons;
+
+                tabcontent = document.getElementsByClassName("tab-content");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].classList.remove("active");
+                }
+
+                tabbuttons = document.getElementsByClassName("tab-button");
+                for (i = 0; i < tabbuttons.length; i++) {
+                    tabbuttons[i].classList.remove("active");
+                }
+
+                document.getElementById(tabName).classList.add("active");
+                evt.currentTarget.classList.add("active");
+            }
+        </script>
+    </head>
+    <body class="bg-green-50 min-h-screen">
+        <header class="bg-green-600 shadow-lg p-4 mb-8">
+            <br />
+            <br />
+            <div class="container mx-auto">
+                <div class="hidden md:flex items-center justify-between">
+                    <div>
+                        <h1 class="text-3xl font-bold text-white mb-2">🐧 DistroSearch</h1>
+                        <p class="text-green-100 text-sm">Find the perfect Linux distribution for you</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="suggest-distro" class="bg-white text-green-600 font-semibold py-2 px-4 rounded shadow hover:bg-green-100 transition duration-300">
+                            Choose the best for you
+                        </a>
+                        <a href="desktops" class="bg-white text-green-600 font-semibold py-2 px-4 rounded shadow hover:bg-green-100 transition duration-300">
+                            Desktop environments
+                        </a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="text-2xl font-bold text-white mb-1">🐧 DistroSearch</h1>
+                            <p class="text-green-100 text-xs">Find the perfect Linux distribution for you</p>
+                        </div>
+                        <button id="menuButton" class="text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="mobileMenu" class="hidden mt-4 flex flex-col gap-2">
+                        <a href="suggest-distro" class="bg-white text-green-600 font-semibold py-2 px-4 rounded shadow hover:bg-green-100 transition duration-300 text-center">
+                            Choose the best for you
+                        </a>
+                        <a href="desktops" class="bg-white text-green-600 font-semibold py-2 px-4 rounded shadow hover:bg-green-100 transition duration-300 text-center">
+                            Desktop environments
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <script>
+                document.getElementById("menuButton").addEventListener("click", function () {
+                    var mobileMenu = document.getElementById("mobileMenu");
+                    if (mobileMenu.classList.contains("hidden")) {
+                        mobileMenu.classList.remove("hidden");
+                    } else {
+                        mobileMenu.classList.add("hidden");
+                    }
+                });
+            </script>
+        </header>
+        <main class="container mx-auto px-4">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold mb-4">🔍 Welcome to DistroSearch</h2>
+                <main class="container mx-auto px-4 flex-grow">
+                    <div class="max-w-4xl mx-auto">
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+                            <div class="p-8">
+                                <div class="uppercase tracking-wide text-sm text-green-600 font-semibold mb-1">Linux Basics</div>
+                                <h2 class="text-3xl font-bold text-gray-800 mb-4 flex items-center"><i class="fas fa-book-open mr-3 text-green-600"></i> Linux Fundamentals</h2>
+                                <p class="text-gray-600 mb-6">
+                                    Welcome to DistroSearch! This guide will help you understand the core concepts of Linux and open-source operating systems. Whether you're a complete beginner or looking to expand your knowledge, you'll
+                                    find valuable information here.
+                                </p>
+
+                                <div style="display: inline-flex;">
+                                    click this logo &nbsp;
+                                    <div id="google_translate_element"></div>
+                                    to translate this page
+                                </div>
+                                <script type="text/javascript">
+                                    function googleTranslateElementInit() {
+                                        new google.translate.TranslateElement(
+                                            {
+                                                pageLanguage: "en",
+                                                includedLanguages: "en,ar,fr,fa,de,fa",
+                                                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                                            },
+                                            "google_translate_element"
+                                        );
+                                    }
+                                </script>
+
+                                <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+                                <div class="tab-header mb-6">
+                                    <button class="tab-button active" onclick="openTab(event, 'basics')">Basics</button>
+                                    <button class="tab-button" onclick="openTab(event, 'distros')">Distros</button>
+                                    <button class="tab-button" onclick="openTab(event, 'security')">Security</button>
+                                    <button class="tab-button" onclick="openTab(event, 'comparison')">Comparison</button>
+                                </div>
+                                <div id="basics" class="tab-content active">
+                                    <div class="info-card">
+                                        <h3 class="text-xl font-semibold flex items-center"><i class="fas fa-microchip feature-icon"></i> The Kernel</h3>
+                                        <p>The kernel is the core component of an operating system that acts as a bridge between applications and the actual data processing done at the hardware level. Key responsibilities include:</p>
+                                        <ul class="list-disc mt-2">
+                                            <li>Memory management</li>
+                                            <li>Process management</li>
+                                            <li>Device drivers</li>
+                                            <li>System calls and security</li>
+                                        </ul>
+                                        <p class="mt-2">The Linux kernel, created by Linus Torvalds in 1991, is monolithic (all core functions are part of the kernel) but supports loadable modules.</p>
+                                    </div>
+                                    <div class="info-card">
+                                        <h3 class="text-xl font-semibold flex items-center"><i class="fas fa-history feature-icon"></i> Unix Heritage</h3>
+                                        <p>Unix was developed at Bell Labs in 1969 and became popular in academic and commercial environments. Its design philosophy emphasizes:</p>
+                                        <ul class="list-disc mt-2">
+                                            <li>Small, modular programs that do one thing well</li>
+                                            <li>Plain text files for data storage</li>
+                                            <li>Hierarchical file system</li>
+                                            <li>Pipes and filters for connecting programs</li>
+                                        </ul>
+                                        <p class="mt-2">Linux follows many Unix conventions but was written from scratch, making it Unix-like rather than a direct Unix descendant.</p>
+                                    </div>
+                                    <div class="info-card">
+                                        <h3 class="text-xl font-semibold flex items-center"><i class="fas fa-code-branch feature-icon"></i> GNU and Linux Relationship</h3>
+                                        <p>
+                                            The GNU Project, launched in 1983 by Richard Stallman, aimed to create a complete Unix-compatible software system composed entirely of free software. By the early 1990s, GNU had produced many
+                                            essential components but lacked a working kernel.
+                                        </p>
+                                        <p class="mt-2">Linus Torvalds' Linux kernel filled this gap, leading to functional GNU/Linux systems. Today, most systems combine:</p>
+                                        <ul class="list-disc mt-2">
+                                            <li>Linux kernel</li>
+                                            <li>GNU core utilities (ls, grep, bash, etc.)</li>
+                                            <li>X Window System or Wayland for graphics</li>
+                                            <li>A desktop environment</li>
+                                            <li>Other software components</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="distros" class="tab-content">
+                                    <div class="info-card">
+                                        <h3 class="text-xl font-semibold flex items-center"><i class="fas fa-boxes feature-icon"></i> What is a Linux Distribution?</h3>
+                                        <p>
+                                            A Linux distribution (distro) is an operating system made from a software collection based on the Linux kernel and often a package management system. Distros take the raw Linux kernel and combine
+                                            it with:
+                                        </p>
+                                        <ul class="list-disc mt-2">
+                                            <li>System software and libraries from GNU</li>
+                                            <li>Package management system (APT, RPM, Pacman, etc.)</li>
+                                            <li>Desktop environment (GNOME, KDE, Xfce, etc.)</li>
+                                            <li>Additional software (web browsers, office suites, etc.)</li>
+                                            <li>Configuration tools and default settings</li>
+                                        </ul>
+                                        <p class="mt-2">Unlike commercial OSes that have single versions (like Windows 10), Linux offers hundreds of distros catering to different needs.</p>
+                                    </div>
+                                    <div class="info-card">
+                                        <h3 class="text-xl font-semibold flex items-center"><i class="fas fa-project-diagram feature-icon"></i> Distribution Families</h3>
+                                        <p>Most distros derive from one of these major families:</p>
+                                        <ul class="list-disc mt-2">
+                                            <li><strong>Debian-based</strong> (Ubuntu, Mint, Pop!_OS) - Known for stability and large repositories</li>
+                                            <li><strong>Red Hat-based</strong> (Fedora, CentOS, RHEL) - Common in enterprise environments</li>
+                                            <li><strong>Arch-based</strong> (Manjaro, EndeavourOS) - Rolling release with latest software</li>
+                                            <li><strong>Slackware-based</strong> - One of the earliest distros, known for simplicity</li>
+                                            <li><strong>Independent</strong> (Gentoo, Void) - Unique approaches to package management</li>
+                                        </ul>
+                                    </div>
+                                    <div class="info-card">
+                                        <h3 class="text-xl font-semibold flex items-center"><i class="fas fa-tags feature-icon"></i> Release Models</h3>
+                                        <p>Distros follow different release strategies:</p>
+                                        <ul class="list-disc mt-2">
+                                            <li><strong>Fixed Release</strong> (Ubuntu, Fedora) - New versions released periodically with support periods</li>
+                                            <li><strong>Rolling Release</strong> (Arch, openSUSE Tumbleweed) - Continuously updated with no version numbers</li>
+                                            <li><strong>LTS (Long Term Support)</strong> - Versions with extended security updates (5+ years for Ubuntu LTS)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="security" class="tab-content">
+                                    <div class="info-card">
+                                        <h3 class="text-xl font-semibold flex items-center"><i class="fas fa-shield-alt feature-icon"></i> Linux Security Advantages</h3>
+                                        <p>Linux is renowned for its security features, which stem from both technical design and community factors:</p>
+                                        <ul class="list-disc mt-2">
+                                            <li><strong>User Privileges</strong>: Regular users operate with limited permissions, preventing system-wide changes</li>
+                                            <li><strong>Package Management</strong>: Software comes from trusted repositories with digital signatures</li>
+                                            <li><strong>Open Source</strong>: Thousands of developers can review code for vulnerabilities</li>
+                                            <li><strong>Rapid Updates</strong>: Security patches are available quickly, often within hours of discovery</li>
+                                            <li><strong>SELinux/AppArmor</strong>: Mandatory access control systems restrict program capabilities</li>
+                                            <li><strong>Smaller Target</strong>: Lower desktop market share means fewer malware attempts</li>
+                                        </ul>
+                                    </div>
+                                    <div class="info-card">
+                                        <h3 class="text-xl font-semibold flex items-center"><i class="fas fa-user-shield feature-icon"></i> Understanding sudo</h3>
+                                        <p>The <span class="highlight">sudo</span> (SuperUser DO) command allows permitted users to execute commands as the superuser or another user. Key aspects:</p>
+                                        <ul class="list-disc mt-2">
+                                            <li>Unlike Windows' UAC, sudo requires explicit password entry (unless configured otherwise)</li>
+                                            <li>Commands are logged for accountability</li>
+                                            <li>Access is controlled via the <span class="highlight">/etc/sudoers</span> file</li>
+                                            <li>Best practice is to use <span class="highlight">sudo</span> for individual commands rather than working as root</li>
+                                        </ul>
+                                        <p class="mt-2">Example usage: <span class="highlight">sudo apt update</span> to refresh package lists</p>
+                                    </div>
+                                </div>
+                                <div id="comparison" class="tab-content">
+                                    <div class="info-card">
+                                        <h3 class="text-xl font-semibold flex items-center"><i class="fas fa-balance-scale feature-icon"></i> Linux vs Other Systems</h3>
+                                        <table class="comparison-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Feature</th>
+                                                    <th>Linux</th>
+                                                    <th>Windows</th>
+                                                    <th>macOS</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Kernel</td>
+                                                    <td>Linux (Monolithic)</td>
+                                                    <td>Windows NT (Hybrid)</td>
+                                                    <td>XNU (Hybrid, BSD-based)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Source Model</td>
+                                                    <td>Open Source</td>
+                                                    <td>Proprietary</td>
+                                                    <td>Mostly Proprietary (Darwin is open)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Package Management</td>
+                                                    <td>Centralized (apt, dnf, pacman)</td>
+                                                    <td>Various installers (MSI, exe)</td>
+                                                    <td>App Store, Homebrew</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Default Shell</td>
+                                                    <td>Bash (typically)</td>
+                                                    <td>PowerShell/CMD</td>
+                                                    <td>Zsh (recent), Bash (older)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Filesystem</td>
+                                                    <td>ext4, btrfs, xfs, etc.</td>
+                                                    <td>NTFS</td>
+                                                    <td>APFS, HFS+</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Security Model</td>
+                                                    <td>User/group permissions, SELinux/AppArmor</td>
+                                                    <td>ACL, UAC</td>
+                                                    <td>POSIX permissions, SIP</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="info-card">
+                                        <h3 class="text-xl font-semibold flex items-center"><i class="fas fa-mobile-alt feature-icon"></i> Linux in Other Systems</h3>
+                                        <p>Linux's flexibility allows it to power many devices beyond traditional computers:</p>
+                                        <div class="mt-4">
+                                            <h4 class="font-semibold text-lg mb-2">Android</h4>
+                                            <p>
+                                                Android uses a modified Linux kernel but replaces most userland components with Google's alternatives (Bionic libc, ART runtime, etc.). While technically Linux, it differs significantly from
+                                                desktop Linux distributions.
+                                            </p>
+                                            <h4 class="font-semibold text-lg mt-4 mb-2">ChromeOS</h4>
+                                            <p>ChromeOS is Gentoo Linux with Google's customizations, running the Chrome browser as its primary interface. Recent versions can run Linux apps via a container.</p>
+                                            <h4 class="font-semibold text-lg mt-4 mb-2">Embedded Systems</h4>
+                                            <p>Many routers, smart TVs, and IoT devices run Linux due to its customizability and lack of licensing fees.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </main>
+        <br />
+        <br />
+        <br />
+        <div class="mt-16 bg-green-700 text-white p-4 text-center footer">
+            <p class="text-sm">Made with 💚 for Linux lovers</p>
+            <p><a href="https://github.com/Daradege/distrosearch">Help us in improving DistroSearch</a></p>
+        </div>
+        <script>
+            function setDirectionBasedOnLang(lang) {
+                const rtlLangs = ["ar", "fa", "ur", "he"];
+
+                if (rtlLangs.includes(lang)) {
+                    document.body.setAttribute("dir", "rtl");
+                } else {
+                    document.body.setAttribute("dir", "ltr");
+                }
+            }
+
+            const observer = new MutationObserver(function (mutations) {
+                const langMatch = document.documentElement.getAttribute("lang");
+                if (langMatch) {
+                    setDirectionBasedOnLang(langMatch);
+                }
+
+                const frame = document.querySelector("iframe.goog-te-banner-frame");
+                if (frame) {
+                    const langParam = new URLSearchParams(location.search).get("hl");
+                    if (langParam) setDirectionBasedOnLang(langParam);
+                }
+            });
+
+            observer.observe(document.body, { childList: true, subtree: true });
+        </script>
+    </body>
+</html>

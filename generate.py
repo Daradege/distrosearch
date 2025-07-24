@@ -34,6 +34,10 @@ with open(os.path.join(OUTPUT_DIR)+"/index.html", "w", encoding="utf-8") as f:
     template = env.get_template('index.html')
     f.write(template.render(bases=all_bases))
 
+with open(os.path.join(OUTPUT_DIR)+"/fundamentals/index.html", "w", encoding="utf-8") as f:
+    template = env.get_template('start.html')
+    f.write(template.render())
+
 for base in all_bases:
     for distro in all_bases[base]:
         os.system("mkdir -p " + OUTPUT_DIR + "/distros/" + base.lower())
