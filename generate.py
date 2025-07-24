@@ -21,6 +21,7 @@ all_bases = distros["bases"]
 
 os.system("mkdir -p " + OUTPUT_DIR + "/distros")
 os.system("mkdir -p " + OUTPUT_DIR + "/desktops")
+os.system("mkdir -p " + OUTPUT_DIR + "/fundamentals")
 
 with open(os.path.join(OUTPUT_DIR)+"/desktops/index.html", "w", encoding="utf-8") as f:
     template = env.get_template('desktops.html')
